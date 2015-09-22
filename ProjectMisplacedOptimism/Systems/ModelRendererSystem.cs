@@ -7,6 +7,7 @@ using Artemis;
 using ProjectMisplacedOptimism.Components;
 using Artemis.Attributes;
 using Microsoft.Xna.Framework.Graphics;
+using ProjectMisplacedOptimism.Framework;
 
 namespace ProjectMisplacedOptimism.Systems
 {
@@ -14,17 +15,12 @@ namespace ProjectMisplacedOptimism.Systems
         ExecutionType = Artemis.Manager.ExecutionType.Synchronous, 
         GameLoopType = Artemis.Manager.GameLoopType.Draw, 
         Layer = 0)]
-    public class ModelRendererSystem : Artemis.System.EntityComponentProcessingSystem<ModelComponent>
+    public class ModelRendererSystem : Artemis.System.EntityComponentProcessingSystem<ModelComponent, SceneGraphNode>
     {
         private CameraComponent _activeCamera;
 
         public GraphicsDevice Device { get; private set; }
         
-
-        public ModelRendererSystem()
-        {
-        }
-
         public override void LoadContent()
         {
             base.LoadContent();
@@ -37,13 +33,13 @@ namespace ProjectMisplacedOptimism.Systems
             base.Begin();
         }
 
-        public override void Process(Entity entity, ModelComponent modelComponent)
+        public override void Process(Entity entity, ModelComponent modelComponent, SceneGraphNode sceneGraphNode)
         {
-            foreach(var mesh in modelComponent.Model.Meshes)
+            foreach (var mesh in modelComponent.Model.Meshes)
             {
-                foreach(BasicEffect effect in mesh.Effects)
+                foreach (BasicEffect effect in mesh.Effects)
                 {
-                    effect.World = modelComponent.SceneGraphNode.WorldMatrix;
+                    effect.World = sceneGraphNode.WorldMatrix;
                     effect.View = _activeCamera.ViewMatrix;
                     effect.Projection = _activeCamera.ProjectionMatrix;
                 }

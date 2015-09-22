@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Artemis.Interface;
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProjectMisplacedOptimism.Framework
 {
-    public class SceneGraphNode
+    public class SceneGraphNode: IComponent
     {
         
         private Matrix _worldMatrix = Matrix.Identity;
