@@ -25,6 +25,7 @@ namespace ProjectMisplacedOptimism
             IsFixedTimeStep = Settings.FrameLimit <= 0;
             if (IsFixedTimeStep)
                 TargetElapsedTime = TimeSpan.FromSeconds(1d / Settings.FrameLimit);
+            Content.RootDirectory = Settings.DataFolder;
             GraphicsManager.ApplyChanges();
         }
 
