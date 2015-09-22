@@ -85,6 +85,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\CameraComponent.cs" />
+    <Compile Include="Components\ModelComponent.cs" />
     <Compile Include="Framework\SceneGraph.cs" />
     <Compile Include="Framework\SceneGraphNode.cs" />
     <Compile Include="Game.cs" />
@@ -94,6 +96,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Systems\ModelRendererSystem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
