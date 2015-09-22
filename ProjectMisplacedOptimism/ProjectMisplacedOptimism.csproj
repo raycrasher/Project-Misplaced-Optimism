@@ -87,6 +87,8 @@
   <ItemGroup>
     <Compile Include="Components\CameraComponent.cs" />
     <Compile Include="Components\ModelComponent.cs" />
+    <Compile Include="Components\RigidBodyComponent.cs" />
+    <Compile Include="Components\TerrainComponent.cs" />
     <Compile Include="Framework\SceneGraph.cs" />
     <Compile Include="Framework\SceneGraphNode.cs" />
     <Compile Include="Game.cs" />
@@ -97,6 +99,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Systems\ModelRendererSystem.cs" />
+    <Compile Include="Systems\PhysicsSystem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
