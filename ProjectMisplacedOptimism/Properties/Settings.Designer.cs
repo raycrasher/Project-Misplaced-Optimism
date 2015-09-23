@@ -94,5 +94,14 @@ namespace ProjectMisplacedOptimism.Properties {
                 this["DataFolder"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2500-01-01")]
+        public global::System.DateTime WorldStartDate {
+            get {
+                return ((global::System.DateTime)(this["WorldStartDate"]));
+            }
+        }
     }
 }

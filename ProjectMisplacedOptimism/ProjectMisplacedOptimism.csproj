@@ -90,9 +90,16 @@
     <Compile Include="Components\ModelComponent.cs" />
     <Compile Include="Components\RigidBodyComponent.cs" />
     <Compile Include="Components\TerrainComponent.cs" />
+    <Compile Include="Framework\Coroutine.cs" />
+    <Compile Include="Framework\CoroutineManager.cs" />
+    <Compile Include="Framework\KeyboardManager.cs" />
+    <Compile Include="Framework\MouseManager.cs" />
     <Compile Include="Framework\SceneGraph.cs" />
     <Compile Include="Framework\SceneGraphNode.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="Framework\Gui\LibRocketGuiManager.cs" />
+    <Compile Include="Framework\Gui\LibRocketRenderInterface.cs" />
+    <Compile Include="Framework\Gui\LibRocketSystemInterface.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -101,6 +108,13 @@
     </Compile>
     <Compile Include="Systems\ModelRendererSystem.cs" />
     <Compile Include="Systems\PhysicsSystem.cs" />
+    <Compile Include="Framework\GameState.cs" />
+    <Compile Include="Framework\MainGameState.cs" />
+    <Compile Include="Systems\WorldUpdateSystem.cs" />
+    <Compile Include="Transform.cs" />
+    <Compile Include="World\Ships\HandlingParameters.cs" />
+    <Compile Include="World\Ships\Ship.cs" />
+    <Compile Include="World\Ships\ShipConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -109,6 +123,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

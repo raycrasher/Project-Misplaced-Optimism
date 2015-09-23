@@ -20,5 +20,8 @@
     <Setting Name="DataFolder" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="WorldStartDate" Type="System.DateTime" Scope="Application">
+      <Value Profile="(Default)">2500-01-01</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
