@@ -95,12 +95,38 @@ namespace ProjectMisplacedOptimism.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("2500-01-01")]
         public global::System.DateTime WorldStartDate {
             get {
                 return ((global::System.DateTime)(this["WorldStartDate"]));
+            }
+            set {
+                this["WorldStartDate"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Specialized.StringCollection ActiveModList {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["ActiveModList"]));
+            }
+            set {
+                this["ActiveModList"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Difficulty {
+            get {
+                return ((int)(this["Difficulty"]));
+            }
+            set {
+                this["Difficulty"] = value;
             }
         }
     }

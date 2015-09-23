@@ -112,6 +112,7 @@
     <Compile Include="Framework\MainGameState.cs" />
     <Compile Include="Systems\WorldUpdateSystem.cs" />
     <Compile Include="Transform.cs" />
+    <Compile Include="World\DifficultySetting.cs" />
     <Compile Include="World\Ships\HandlingParameters.cs" />
     <Compile Include="World\Ships\Ship.cs" />
     <Compile Include="World\Ships\ShipConfiguration.cs" />

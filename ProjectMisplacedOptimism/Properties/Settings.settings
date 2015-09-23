@@ -20,8 +20,14 @@
     <Setting Name="DataFolder" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="WorldStartDate" Type="System.DateTime" Scope="Application">
+    <Setting Name="WorldStartDate" Type="System.DateTime" Scope="User">
       <Value Profile="(Default)">2500-01-01</Value>
+    </Setting>
+    <Setting Name="ActiveModList" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Difficulty" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
     </Setting>
   </Settings>
 </SettingsFile>

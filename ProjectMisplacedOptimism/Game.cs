@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using ProjectMisplacedOptimism.Framework;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace ProjectMisplacedOptimism
         public static Properties.Settings Settings { get { return Properties.Settings.Default; } }
         public static GameTime CurrentUpdateTime { get; private set; }
         public static GameState State { get; set; }
+        public static SpriteBatch GlobalSpriteBatch { get; private set; }
 
         private Game()
         {
