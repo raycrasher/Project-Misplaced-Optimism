@@ -86,6 +86,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components\CameraComponent.cs" />
+    <Compile Include="Components\IPhysicsUpdateableComponent.cs" />
     <Compile Include="Components\ModelComponent.cs" />
     <Compile Include="Components\RigidBodyComponent.cs" />
     <Compile Include="Components\TerrainComponent.cs" />

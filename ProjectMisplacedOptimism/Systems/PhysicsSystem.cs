@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using Artemis;
 using Microsoft.Xna.Framework;
 using System.Threading;
+using ProjectMisplacedOptimism.Components;
+using ProjectMisplacedOptimism.Framework;
 
 namespace ProjectMisplacedOptimism.Systems
 {
@@ -24,9 +26,8 @@ namespace ProjectMisplacedOptimism.Systems
         AutoResetEvent _worldSyncEvent;
         private bool _threadIsRunning = false;
 
-        public PhysicsSystem() : base(Aspect.All())
+        public PhysicsSystem() : base(Aspect.All(typeof(IPhysicsUpdateableComponent), typeof(SceneGraphNode)))
         {
-            //TODO: Edit aspect
         }
 
         protected override void Begin()
@@ -56,7 +57,7 @@ namespace ProjectMisplacedOptimism.Systems
 
         public override void UnloadContent()
         {
-            _threadIsRunning = false; // is this dangerous?
+            _threadIsRunning = false;
             _worldSyncEvent.Set();
             _worldUpdateTask.Wait();
             base.UnloadContent();
@@ -65,7 +66,9 @@ namespace ProjectMisplacedOptimism.Systems
 
         public override void Process(Entity entity)
         {
-            // TODO: add processing
+            var updateable = entity.GetComponent<IPhysicsUpdateableComponent>();
+            var sceneNode = entity.GetComponent<SceneGraphNode>();
+            sceneNode.LocalMatrix = updateable.Transform;
         }
 
         void UpdateWorld()
