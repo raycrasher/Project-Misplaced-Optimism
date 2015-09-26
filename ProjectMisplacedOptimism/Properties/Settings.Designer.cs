@@ -85,25 +85,13 @@ namespace ProjectMisplacedOptimism.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("..\\..\\..\\Data")]
         public string DataFolder {
             get {
                 return ((string)(this["DataFolder"]));
             }
             set {
                 this["DataFolder"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2500-01-01")]
-        public global::System.DateTime WorldStartDate {
-            get {
-                return ((global::System.DateTime)(this["WorldStartDate"]));
-            }
-            set {
-                this["WorldStartDate"] = value;
             }
         }
         
@@ -127,6 +115,18 @@ namespace ProjectMisplacedOptimism.Properties {
             }
             set {
                 this["Difficulty"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("..\\..\\..\\Mods")]
+        public string ModsFolder {
+            get {
+                return ((string)(this["ModsFolder"]));
+            }
+            set {
+                this["ModsFolder"] = value;
             }
         }
     }

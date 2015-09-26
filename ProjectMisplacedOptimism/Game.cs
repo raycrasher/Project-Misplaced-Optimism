@@ -37,14 +37,23 @@ namespace ProjectMisplacedOptimism
             Artemis.System.EntitySystem.BlackBoard.SetEntry("GraphicsDevice", GraphicsDevice);
         }
 
+        protected override void LoadContent()
+        {
+            State = new MainGameState();
+            State.LoadContent();
+            base.LoadContent();
+        }
+
         protected override void Update(GameTime gameTime)
         {
+            State.Update(gameTime);
             CurrentUpdateTime = gameTime;
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
+            State.Draw(gameTime);
             base.Draw(gameTime);
         }
 

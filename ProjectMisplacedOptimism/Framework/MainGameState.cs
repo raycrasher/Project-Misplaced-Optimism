@@ -21,5 +21,15 @@ namespace ProjectMisplacedOptimism.Framework
             SceneGraph = new SceneGraph();
             EntitySystem.BlackBoard.SetEntry("SceneGraph", SceneGraph);
         }
+
+        public override void Update(GameTime gameTime)
+        {
+            World.Update();
+        }
+
+        public override void Draw(GameTime gameTime)
+        {
+            World.Draw();
+        }
     }
 }
