@@ -69,8 +69,13 @@
     <Reference Include="Lidgren.Network">
       <HintPath>..\Dependencies\Lidgren.Network.dll</HintPath>
     </Reference>
-    <Reference Include="MonoGame.Framework">
+    <Reference Include="MonoGame.Framework, Version=3.4.0.456, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Dependencies\MonoGame.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoGame.Framework.Net, Version=3.4.0.456, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\MonoGame.Framework.Net.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\Dependencies\Newtonsoft.Json.dll</HintPath>
@@ -85,13 +90,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Components\CameraComponent.cs" />
+    <Compile Include="Framework\Camera.cs" />
     <Compile Include="Components\IPhysicsUpdateableComponent.cs" />
     <Compile Include="Components\ModelComponent.cs" />
+    <Compile Include="Components\PlayerControlledFreeCameraComponent.cs" />
     <Compile Include="Components\RigidBodyComponent.cs" />
     <Compile Include="Components\TerrainComponent.cs" />
     <Compile Include="Framework\Coroutine.cs" />
     <Compile Include="Framework\CoroutineManager.cs" />
+    <Compile Include="Framework\EntityTemplates\ShipEntityTemplate.cs" />
     <Compile Include="Framework\KeyboardManager.cs" />
     <Compile Include="Framework\MouseManager.cs" />
     <Compile Include="Framework\SceneGraph.cs" />
@@ -106,6 +113,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Systems\FreeMovementControlSystem.cs" />
     <Compile Include="Systems\ModelRendererSystem.cs" />
     <Compile Include="Systems\PhysicsSystem.cs" />
     <Compile Include="Framework\GameState.cs" />
@@ -116,6 +124,7 @@
     <Compile Include="World\Ships\HandlingParameters.cs" />
     <Compile Include="World\Ships\Ship.cs" />
     <Compile Include="World\Ships\ShipConfiguration.cs" />
+    <Compile Include="World\WorldConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

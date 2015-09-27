@@ -13,7 +13,7 @@ namespace ProjectMisplacedOptimism.Systems
     [ArtemisEntitySystem(ExecutionType =Artemis.Manager.ExecutionType.Synchronous, GameLoopType = Artemis.Manager.GameLoopType.Update)]
     public class WorldUpdateSystem: ProcessingSystem
     {
-        public DateTime GlobalTime { get; set; } = Game.Settings.WorldStartDate;
+        public DateTime GlobalTime { get; set; } = Game.WorldConfiguration.WorldStartDate;
         public CoroutineManager GlobalCoroutines { get; } = new CoroutineManager();
         DateTime _lastUpdateTime;
 

@@ -85,7 +85,7 @@ namespace ProjectMisplacedOptimism.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("..\\..\\..\\Data")]
+        [global::System.Configuration.DefaultSettingValueAttribute("../../../Data")]
         public string DataFolder {
             get {
                 return ((string)(this["DataFolder"]));
@@ -120,7 +120,7 @@ namespace ProjectMisplacedOptimism.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("..\\..\\..\\Mods")]
+        [global::System.Configuration.DefaultSettingValueAttribute("..\\..\\Mods")]
         public string ModsFolder {
             get {
                 return ((string)(this["ModsFolder"]));

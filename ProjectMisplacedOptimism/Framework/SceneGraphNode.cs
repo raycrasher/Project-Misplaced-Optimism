@@ -61,5 +61,10 @@ namespace ProjectMisplacedOptimism.Framework
                 return _worldMatrix;
             }
         }
+
+        public void SetTransform(Vector3 position, float yaw, float pitch, float roll, Vector3 scale)
+        {
+            LocalMatrix = Matrix.CreateScale(position) * Matrix.CreateFromYawPitchRoll(yaw, pitch, roll) * Matrix.CreateTranslation(scale);
+        }
     }
 }

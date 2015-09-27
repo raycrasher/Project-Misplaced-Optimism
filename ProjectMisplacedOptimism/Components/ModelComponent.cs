@@ -11,6 +11,11 @@ namespace ProjectMisplacedOptimism.Components
 {
     public class ModelComponent: IComponent
     {
+        public ModelComponent(Model model)
+        {
+            Model = model;
+        }
+        public bool IsVisible { get; set; } = true;
         public Model Model { get; set; }
     }
 }

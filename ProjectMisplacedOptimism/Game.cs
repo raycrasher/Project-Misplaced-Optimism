@@ -1,8 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ProjectMisplacedOptimism.Framework;
+using ProjectMisplacedOptimism.World;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +20,8 @@ namespace ProjectMisplacedOptimism
         public static GameTime CurrentUpdateTime { get; private set; }
         public static GameState State { get; set; }
         public static SpriteBatch GlobalSpriteBatch { get; private set; }
+        public static WorldConfiguration WorldConfiguration { get; set; }
+
 
         private Game()
         {
@@ -30,18 +34,20 @@ namespace ProjectMisplacedOptimism
             IsFixedTimeStep = Settings.FrameLimit <= 0;
             if (IsFixedTimeStep)
                 TargetElapsedTime = TimeSpan.FromSeconds(1d / Settings.FrameLimit);
-            Content.RootDirectory = Settings.DataFolder;
+            Content.RootDirectory = Path.GetFullPath(Settings.DataFolder); 
             GraphicsManager.ApplyChanges();
 
             Artemis.System.EntitySystem.BlackBoard.SetEntry("ContentManager", Content);
             Artemis.System.EntitySystem.BlackBoard.SetEntry("GraphicsDevice", GraphicsDevice);
+            WorldConfiguration = new WorldConfiguration();
         }
 
         protected override void LoadContent()
         {
+            base.LoadContent();
+            WorldConfiguration.LoadAll();
             State = new MainGameState();
             State.LoadContent();
-            base.LoadContent();
         }
 
         protected override void Update(GameTime gameTime)

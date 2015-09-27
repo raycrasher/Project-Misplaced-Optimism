@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjectMisplacedOptimism.Components
+namespace ProjectMisplacedOptimism.Framework
 {
-    public class CameraComponent: IComponent
+    public class Camera: IComponent
     {
         public SceneGraphNode SceneGraphNode { get; set; } = new SceneGraphNode();
         public Matrix ViewMatrix { get; set; } = Matrix.Identity;

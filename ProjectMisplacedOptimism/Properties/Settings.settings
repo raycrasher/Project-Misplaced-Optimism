@@ -18,7 +18,7 @@
       <Value Profile="(Default)">60</Value>
     </Setting>
     <Setting Name="DataFolder" Type="System.String" Scope="User">
-      <Value Profile="(Default)">..\..\..\Data</Value>
+      <Value Profile="(Default)">../../../Data</Value>
     </Setting>
     <Setting Name="ActiveModList" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)" />
@@ -27,7 +27,7 @@
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="ModsFolder" Type="System.String" Scope="User">
-      <Value Profile="(Default)">..\..\..\Mods</Value>
+      <Value Profile="(Default)">..\..\Mods</Value>
     </Setting>
   </Settings>
 </SettingsFile>
