@@ -26,7 +26,6 @@ namespace ProjectMisplacedOptimism.Framework
             }
         }
 
-        public SceneGraph SceneGraph { get; private set; }
         public SceneGraphNode Parent {
             get {
                 return _parent;

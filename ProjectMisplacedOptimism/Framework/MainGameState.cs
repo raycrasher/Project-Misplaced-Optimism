@@ -14,7 +14,6 @@ namespace ProjectMisplacedOptimism.Framework
     public class MainGameState: GameState
     {
         public Artemis.EntityWorld World { get; private set; }
-        public SceneGraph SceneGraph { get; private set; }
         Camera _camera;
 
         public override void LoadContent()
@@ -27,12 +26,15 @@ namespace ProjectMisplacedOptimism.Framework
                 1.0f, 10000.0f); ;
             EntitySystem.BlackBoard.SetEntry("ActiveCamera", _camera);
 
-
             World = new Artemis.EntityWorld();
             World.SystemManager.SetSystem(new Systems.ModelRendererSystem(), Artemis.Manager.GameLoopType.Draw, 1, Artemis.Manager.ExecutionType.Synchronous);
             World.SetEntityTemplate("ship", new EntityTemplates.ShipEntityTemplate());
-            SceneGraph = new SceneGraph();
-            EntitySystem.BlackBoard.SetEntry("SceneGraph", SceneGraph);
+
+            //create camera
+            var cameraEntity = World.CreateEntity();
+
+            cameraEntity.AddComponent(_camera);
+            cameraEntity.AddComponent(new SceneGraphNode());
 
             LoadTestContent();
         }

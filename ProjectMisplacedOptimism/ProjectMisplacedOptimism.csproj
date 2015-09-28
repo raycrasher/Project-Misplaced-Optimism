@@ -90,10 +90,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\SimpleMovementComponent.cs" />
+    <Compile Include="Components\UpdateableComponent.cs" />
     <Compile Include="Framework\Camera.cs" />
     <Compile Include="Components\IPhysicsUpdateableComponent.cs" />
     <Compile Include="Components\ModelComponent.cs" />
-    <Compile Include="Components\PlayerControlledFreeCameraComponent.cs" />
+    <Compile Include="Components\PlayerInputComponent.cs" />
     <Compile Include="Components\RigidBodyComponent.cs" />
     <Compile Include="Components\TerrainComponent.cs" />
     <Compile Include="Framework\Coroutine.cs" />
@@ -101,7 +103,6 @@
     <Compile Include="Framework\EntityTemplates\ShipEntityTemplate.cs" />
     <Compile Include="Framework\KeyboardManager.cs" />
     <Compile Include="Framework\MouseManager.cs" />
-    <Compile Include="Framework\SceneGraph.cs" />
     <Compile Include="Framework\SceneGraphNode.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Framework\Gui\LibRocketGuiManager.cs" />

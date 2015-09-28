@@ -21,7 +21,9 @@ namespace ProjectMisplacedOptimism
         public static GameState State { get; set; }
         public static SpriteBatch GlobalSpriteBatch { get; private set; }
         public static WorldConfiguration WorldConfiguration { get; set; }
-
+        public static CoroutineManager GlobalCoroutines { get; } = new CoroutineManager();
+        public static KeyboardManager Keyboard { get; private set; }
+        public static MouseManager Mouse { get; private set; }
 
         private Game()
         {
@@ -36,6 +38,8 @@ namespace ProjectMisplacedOptimism
                 TargetElapsedTime = TimeSpan.FromSeconds(1d / Settings.FrameLimit);
             Content.RootDirectory = Path.GetFullPath(Settings.DataFolder); 
             GraphicsManager.ApplyChanges();
+            Keyboard = new KeyboardManager(GlobalCoroutines);
+            Mouse = new MouseManager(GlobalCoroutines);
 
             Artemis.System.EntitySystem.BlackBoard.SetEntry("ContentManager", Content);
             Artemis.System.EntitySystem.BlackBoard.SetEntry("GraphicsDevice", GraphicsDevice);
@@ -52,6 +56,7 @@ namespace ProjectMisplacedOptimism
 
         protected override void Update(GameTime gameTime)
         {
+            GlobalCoroutines.RunCoroutines(gameTime.ElapsedGameTime);
             State.Update(gameTime);
             CurrentUpdateTime = gameTime;
             base.Update(gameTime);
