@@ -26,7 +26,7 @@ namespace ProjectMisplacedOptimism.Systems
         AutoResetEvent _worldSyncEvent;
         private bool _threadIsRunning = false;
 
-        public PhysicsSystem() : base(Aspect.All(typeof(IPhysicsUpdateableComponent), typeof(SceneGraphNode)))
+        public PhysicsSystem() : base(Aspect.All(typeof(IPhysicsUpdateableComponent), typeof(Transform)))
         {
         }
 
@@ -67,8 +67,8 @@ namespace ProjectMisplacedOptimism.Systems
         public override void Process(Entity entity)
         {
             var updateable = entity.GetComponent<IPhysicsUpdateableComponent>();
-            var sceneNode = entity.GetComponent<SceneGraphNode>();
-            sceneNode.LocalMatrix = updateable.Transform;
+            var xform = entity.GetComponent<Transform>();
+            xform.LocalMatrix = updateable.Transform;
         }
 
         void UpdateWorld()

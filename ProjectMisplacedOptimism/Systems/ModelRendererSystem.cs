@@ -16,7 +16,7 @@ namespace ProjectMisplacedOptimism.Systems
         ExecutionType = Artemis.Manager.ExecutionType.Synchronous, 
         GameLoopType = Artemis.Manager.GameLoopType.Draw, 
         Layer = 0)]
-    public class ModelRendererSystem : Artemis.System.EntityComponentProcessingSystem<ModelComponent, SceneGraphNode>
+    public class ModelRendererSystem : Artemis.System.EntityComponentProcessingSystem<ModelComponent, Transform>
     {
         private Camera _activeCamera;
         Matrix[] _sharedDrawBoneMatrices = new Matrix[10];
@@ -35,7 +35,7 @@ namespace ProjectMisplacedOptimism.Systems
             base.Begin();
         }
 
-        public override void Process(Entity entity, ModelComponent modelComponent, SceneGraphNode sceneGraphNode)
+        public override void Process(Entity entity, ModelComponent modelComponent, Transform xform)
         {
             if (!modelComponent.IsVisible) return;
             var model = modelComponent.Model;
@@ -60,7 +60,7 @@ namespace ProjectMisplacedOptimism.Systems
                     {
                         throw new InvalidOperationException();
                     }
-                    effectMatricies.World = _sharedDrawBoneMatrices[mesh.ParentBone.Index] * sceneGraphNode.WorldMatrix;
+                    effectMatricies.World = _sharedDrawBoneMatrices[mesh.ParentBone.Index] * xform.WorldMatrix;
                     effectMatricies.View = _activeCamera.ViewMatrix;
                     effectMatricies.Projection = _activeCamera.ProjectionMatrix;
                     var basicEffect = effect as BasicEffect;

@@ -30,10 +30,10 @@ namespace ProjectMisplacedOptimism.Framework
 
             //create camera
             var cameraEntity = World.CreateEntity();
-            _camera.SceneGraphNode.SetTransform(Vector3.One, 10, 10, 10, Vector3.One); ;
+            _camera.Transform.SetTransform(Vector3.One, 10, 10, 10, Vector3.One); ;
             _camera.UpdateMatrices();
             cameraEntity.AddComponent(_camera);
-            cameraEntity.AddComponent(_camera.SceneGraphNode);
+            cameraEntity.AddComponent(_camera.Transform);
             cameraEntity.AddComponent(new SimpleMovementComponent());
             cameraEntity.AddComponent(new PlayerInputComponent());
             cameraEntity.AddComponent(new FrameUpdateComponent(e=>_camera.UpdateMatrices()));

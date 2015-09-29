@@ -16,7 +16,7 @@ namespace ProjectMisplacedOptimism.Framework.EntityTemplates
         {
             var shipDef = Game.WorldConfiguration.Ships[args[0] as string];
             entity.AddComponent(new ModelComponent(shipDef.Model));
-            entity.AddComponent(new SceneGraphNode());
+            entity.AddComponent(new Transform());
             entity.AddComponent(shipDef);
             return entity;
         }

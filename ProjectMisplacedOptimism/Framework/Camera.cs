@@ -11,8 +11,8 @@ namespace ProjectMisplacedOptimism.Framework
 {
     public class Camera: IComponent
     {
-        public SceneGraphNode SceneGraphNode { get; set; }
-            = new SceneGraphNode();
+        public Transform Transform { get; set; }
+            = new Transform();
 
         public Matrix ViewMatrix { get; set; }
             = Matrix.CreateLookAt(new Vector3(1, 1, 1), new Vector3(0, 0, 0), Vector3.UnitY);
@@ -24,8 +24,9 @@ namespace ProjectMisplacedOptimism.Framework
 
         public void UpdateMatrices()
         {
-            var matrix = SceneGraphNode.WorldMatrix;
-            ViewMatrix = Matrix.CreateLookAt(matrix.Translation, matrix.Forward, matrix.Up);
+            var matrix = Transform.WorldMatrix;
+            var pos = matrix.Translation;
+            ViewMatrix = Matrix.CreateLookAt(pos, pos + matrix.Forward, matrix.Up);
         }
     }
 }

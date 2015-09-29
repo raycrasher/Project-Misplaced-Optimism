@@ -11,21 +11,21 @@ using Microsoft.Xna.Framework;
 
 namespace ProjectMisplacedOptimism.Systems
 {
-    public class FreeMovementControlSystem : Artemis.System.EntityComponentProcessingSystem<SceneGraphNode, SimpleMovementComponent, PlayerInputComponent>
+    public class FreeMovementControlSystem : Artemis.System.EntityComponentProcessingSystem<Transform, SimpleMovementComponent, PlayerInputComponent>
     {
-        public override void Process(Entity entity, SceneGraphNode sceneNode, SimpleMovementComponent movement, PlayerInputComponent input)
+        public override void Process(Entity entity, Transform xform, SimpleMovementComponent movement, PlayerInputComponent input)
         {
             Vector3 velocity = Vector3.Zero;
-            if (Game.Keyboard.IsKeyDown(input.ForwardKey)) velocity += sceneNode.LocalMatrix.Forward.AsNormalized() * movement.LinearSpeed;
-            else if (Game.Keyboard.IsKeyDown(input.BackKey)) velocity += sceneNode.LocalMatrix.Backward.AsNormalized() * movement.LinearSpeed;
+            if (Game.Keyboard.IsKeyDown(input.ForwardKey)) velocity += xform.LocalMatrix.Forward.AsNormalized() * movement.LinearSpeed;
+            else if (Game.Keyboard.IsKeyDown(input.BackKey)) velocity += xform.LocalMatrix.Backward.AsNormalized() * movement.LinearSpeed;
 
-            if (Game.Keyboard.IsKeyDown(input.RightKey)) velocity += sceneNode.LocalMatrix.Right.AsNormalized() * movement.LinearSpeed;
-            else if (Game.Keyboard.IsKeyDown(input.LeftKey)) velocity += sceneNode.LocalMatrix.Left.AsNormalized() * movement.LinearSpeed;
+            if (Game.Keyboard.IsKeyDown(input.RightKey)) velocity += xform.LocalMatrix.Right.AsNormalized() * movement.LinearSpeed;
+            else if (Game.Keyboard.IsKeyDown(input.LeftKey)) velocity += xform.LocalMatrix.Left.AsNormalized() * movement.LinearSpeed;
 
-            if (Game.Keyboard.IsKeyDown(input.UpKey)) velocity += sceneNode.LocalMatrix.Up.AsNormalized() * movement.LinearSpeed;
-            else if (Game.Keyboard.IsKeyDown(input.DownKey)) velocity += sceneNode.LocalMatrix.Down.AsNormalized() * movement.LinearSpeed;
+            if (Game.Keyboard.IsKeyDown(input.UpKey)) velocity += xform.LocalMatrix.Up.AsNormalized() * movement.LinearSpeed;
+            else if (Game.Keyboard.IsKeyDown(input.DownKey)) velocity += xform.LocalMatrix.Down.AsNormalized() * movement.LinearSpeed;
 
-            sceneNode.LocalMatrix = sceneNode.LocalMatrix * Matrix.CreateTranslation(velocity);
+            xform.LocalMatrix = xform.LocalMatrix * Matrix.CreateTranslation(velocity);
         }
     }
 }

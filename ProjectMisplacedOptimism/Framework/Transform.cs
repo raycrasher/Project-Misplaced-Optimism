@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace ProjectMisplacedOptimism.Framework
 {
-    public class SceneGraphNode: IComponent
+    public class Transform: IComponent
     {
         
         private Matrix _worldMatrix = Matrix.Identity;
         private Matrix _localMatrix = Matrix.Identity;
         private bool _worldMatrixNeedsUpdate = true;
-        private SceneGraphNode _parent;
+        private Transform _parent;
 
         public Matrix LocalMatrix {
             get {
@@ -26,7 +26,7 @@ namespace ProjectMisplacedOptimism.Framework
             }
         }
 
-        public SceneGraphNode Parent {
+        public Transform Parent {
             get {
                 return _parent;
             }
