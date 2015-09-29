@@ -115,6 +115,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Systems\DynamicSkySystem.cs" />
     <Compile Include="Systems\FrameUpdateSystem.cs" />
     <Compile Include="Systems\FreeMovementControlSystem.cs" />
     <Compile Include="Systems\ModelRendererSystem.cs" />
