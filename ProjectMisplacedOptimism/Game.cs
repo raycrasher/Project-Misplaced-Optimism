@@ -17,13 +17,14 @@ namespace ProjectMisplacedOptimism
 
         public static GraphicsDeviceManager GraphicsManager { get; private set; }
         public static Properties.Settings Settings { get { return Properties.Settings.Default; } }
-        public static GameTime CurrentUpdateTime { get; private set; }
         public static GameState State { get; set; }
         public static SpriteBatch GlobalSpriteBatch { get; private set; }
         public static WorldConfiguration WorldConfiguration { get; set; }
         public static CoroutineManager GlobalCoroutines { get; } = new CoroutineManager();
         public static KeyboardManager Keyboard { get; private set; }
         public static MouseManager Mouse { get; private set; }
+        public static TimeSpan UpdateDeltaTime { get; set; }
+        public static TimeSpan DrawDeltaTime { get; set; }
 
         private Game()
         {
@@ -57,14 +58,15 @@ namespace ProjectMisplacedOptimism
 
         protected override void Update(GameTime gameTime)
         {
+            UpdateDeltaTime = gameTime.ElapsedGameTime;
             GlobalCoroutines.RunCoroutines(gameTime.ElapsedGameTime);
             State.Update(gameTime);
-            CurrentUpdateTime = gameTime;
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
+            DrawDeltaTime = gameTime.ElapsedGameTime;
             State.Draw(gameTime);
             base.Draw(gameTime);
         }

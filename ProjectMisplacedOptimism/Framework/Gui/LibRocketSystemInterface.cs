@@ -6,7 +6,7 @@ namespace ProjectMisplacedOptimism.Framework.Gui
     {
         protected override float GetElapsedTime()
         {
-            return (float)Game.CurrentUpdateTime.ElapsedGameTime.TotalSeconds;
+            return (float)Game.UpdateDeltaTime.TotalSeconds;
         }
 
         protected override bool LogMessage(LibRocketNet.LogType type, string message)

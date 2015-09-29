@@ -14,12 +14,12 @@ namespace ProjectMisplacedOptimism.Systems
     public class WorldUpdateSystem: ProcessingSystem
     {
         public DateTime GlobalTime { get; set; } = Game.WorldConfiguration.WorldStartDate;
-        public CoroutineManager GlobalCoroutines { get; } = new CoroutineManager();
+        public CoroutineManager WorldCoroutines { get; } = new CoroutineManager();
         DateTime _lastUpdateTime;
 
         public void ExecuteEventOn(DateTime time, Action action)
         {
-            GlobalCoroutines.StartCoroutine(ExecuteEventOnMonitor(time, action));
+            WorldCoroutines.StartCoroutine(ExecuteEventOnMonitor(time, action));
         }
 
         public void ExecuteEventAfter(TimeSpan time, Action action)
@@ -36,10 +36,10 @@ namespace ProjectMisplacedOptimism.Systems
 
         public override void ProcessSystem()
         {
-            GlobalTime += Game.CurrentUpdateTime.ElapsedGameTime;
+            GlobalTime += Game.UpdateDeltaTime;
             if (GlobalTime - _lastUpdateTime < TimeSpan.FromSeconds(1)) return;
             _lastUpdateTime = GlobalTime;
-            GlobalCoroutines.RunCoroutines(Game.CurrentUpdateTime.ElapsedGameTime);
+            WorldCoroutines.RunCoroutines(Game.UpdateDeltaTime);
         }
     }
 }
