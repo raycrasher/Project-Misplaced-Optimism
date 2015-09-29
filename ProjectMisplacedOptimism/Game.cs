@@ -52,6 +52,7 @@ namespace ProjectMisplacedOptimism
             WorldConfiguration.LoadAll();
             State = new MainGameState();
             State.LoadContent();
+            this.SetFocus();
         }
 
         protected override void Update(GameTime gameTime)

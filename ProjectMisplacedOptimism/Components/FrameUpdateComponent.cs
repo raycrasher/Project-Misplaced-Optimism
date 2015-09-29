@@ -8,8 +8,14 @@ using System.Threading.Tasks;
 
 namespace ProjectMisplacedOptimism.Components
 {
-    public class UpdateableComponent: IComponent
+    public class FrameUpdateComponent: IComponent
     {
+
+        public FrameUpdateComponent(Action<Entity> action = null)
+        {
+            this.UpdateFunction = action;
+        }
+
         public Action<Entity> UpdateFunction { get; set; }
     }
 }

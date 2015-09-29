@@ -19,22 +19,24 @@ namespace ProjectMisplacedOptimism.Framework
         public override void LoadContent()
         {
             _camera = new Camera();
-            _camera.SceneGraphNode = new SceneGraphNode();
-            _camera.ViewMatrix = Matrix.CreateLookAt(new Vector3(1, 1, 1), new Vector3(0, 0, 0), Vector3.UnitY);
-            _camera.ProjectionMatrix = Matrix.CreatePerspectiveFieldOfView(
-                MathHelper.ToRadians(45.0f), Game.Instance.GraphicsDevice.Viewport.AspectRatio,
-                1.0f, 10000.0f); ;
             EntitySystem.BlackBoard.SetEntry("ActiveCamera", _camera);
 
             World = new Artemis.EntityWorld();
             World.SystemManager.SetSystem(new Systems.ModelRendererSystem(), Artemis.Manager.GameLoopType.Draw, 1, Artemis.Manager.ExecutionType.Synchronous);
+            World.SystemManager.SetSystem(new Systems.FrameUpdateSystem(), Artemis.Manager.GameLoopType.Update, 0, Artemis.Manager.ExecutionType.Synchronous);
+            World.SystemManager.SetSystem(new Systems.FreeMovementControlSystem(), Artemis.Manager.GameLoopType.Update, 1, Artemis.Manager.ExecutionType.Synchronous);
+            
             World.SetEntityTemplate("ship", new EntityTemplates.ShipEntityTemplate());
 
             //create camera
             var cameraEntity = World.CreateEntity();
-
+            _camera.SceneGraphNode.SetTransform(Vector3.One, 10, 10, 10, Vector3.One); ;
+            _camera.UpdateMatrices();
             cameraEntity.AddComponent(_camera);
-            cameraEntity.AddComponent(new SceneGraphNode());
+            cameraEntity.AddComponent(_camera.SceneGraphNode);
+            cameraEntity.AddComponent(new SimpleMovementComponent());
+            cameraEntity.AddComponent(new PlayerInputComponent());
+            cameraEntity.AddComponent(new FrameUpdateComponent(e=>_camera.UpdateMatrices()));
 
             LoadTestContent();
         }

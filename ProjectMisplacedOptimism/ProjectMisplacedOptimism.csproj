@@ -82,6 +82,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -91,7 +92,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components\SimpleMovementComponent.cs" />
-    <Compile Include="Components\UpdateableComponent.cs" />
+    <Compile Include="Components\FrameUpdateComponent.cs" />
     <Compile Include="Framework\Camera.cs" />
     <Compile Include="Components\IPhysicsUpdateableComponent.cs" />
     <Compile Include="Components\ModelComponent.cs" />
@@ -114,6 +115,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Systems\FrameUpdateSystem.cs" />
     <Compile Include="Systems\FreeMovementControlSystem.cs" />
     <Compile Include="Systems\ModelRendererSystem.cs" />
     <Compile Include="Systems\PhysicsSystem.cs" />
@@ -121,6 +123,7 @@
     <Compile Include="Framework\MainGameState.cs" />
     <Compile Include="Systems\WorldUpdateSystem.cs" />
     <Compile Include="Transform.cs" />
+    <Compile Include="Utilities.cs" />
     <Compile Include="World\DifficultySetting.cs" />
     <Compile Include="World\Ships\HandlingParameters.cs" />
     <Compile Include="World\Ships\Ship.cs" />

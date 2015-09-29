@@ -10,7 +10,7 @@ namespace ProjectMisplacedOptimism.Components
 {
     public class SimpleMovementComponent: IComponent
     {
-        public float LinearSpeed { get; set; } = 2;
+        public float LinearSpeed { get; set; } = 1;
         public float AngularSpeed { get; set; } = 0.1f;
     }
 }

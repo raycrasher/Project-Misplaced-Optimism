@@ -63,7 +63,6 @@ namespace ProjectMisplacedOptimism.Systems
                     effectMatricies.World = _sharedDrawBoneMatrices[mesh.ParentBone.Index] * sceneGraphNode.WorldMatrix;
                     effectMatricies.View = _activeCamera.ViewMatrix;
                     effectMatricies.Projection = _activeCamera.ProjectionMatrix;
-
                     var basicEffect = effect as BasicEffect;
                     if( basicEffect != null){
                         basicEffect.LightingEnabled = true;
